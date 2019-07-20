@@ -110,8 +110,8 @@ sudo systemctl restart pure-ftpd-ldap
 
 ynh_app_setting_set $app final_path $final_path
 #SETUP_SOURCE_ZIP	# Télécharge la source, décompresse et copie dans $final_path
-#sudo cp -a $final_path/files_to_upload/. $final_path
-#sudo rm -r $final_path/files_to_upload
+sudo cp -a $final_path/files_to_upload/. $final_path
+sudo rm -r $final_path/files_to_upload
 
 #=================================================
 # NGINX CONFIGURATION
