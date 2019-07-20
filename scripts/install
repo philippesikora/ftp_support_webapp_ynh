@@ -27,7 +27,8 @@ app=$YNH_APP_INSTANCE_NAME
 
 path_url=/ftp_webapp_$admin
 parent_dir=/var/www/webapp_$admin
-final_path=$parent_dir/netftp
+#final_path=$parent_dir/netftp
+final_path=$parent_dir/cuisine
 
 #=================================================
 # CHECK IF THE APP CAN BE INSTALLED WITH THIS ARGS
@@ -52,7 +53,8 @@ ynh_app_setting_set $app admin $admin
 # FIND AND OPEN A PORT
 #=================================================
 
-port=$(ynh_find_port 21021)	# Cherche un port libre.
+#port=$(ynh_find_port 21021)	# Cherche un port libre.
+port=$(ynh_find_port 21)
 # Ouvre le port dans le firewall
 ALL_QUIET sudo yunohost firewall allow TCP $port
 ynh_app_setting_set $app port $port
@@ -106,10 +108,10 @@ sudo systemctl restart pure-ftpd-ldap
 # DOWNLOAD, CHECK AND UNPACK NET2FTP
 #=================================================
 
-ynh_app_setting_set $app final_path $final_path
-SETUP_SOURCE_ZIP	# Télécharge la source, décompresse et copie dans $final_path
-sudo cp -a $final_path/files_to_upload/. $final_path
-sudo rm -r $final_path/files_to_upload
+#ynh_app_setting_set $app final_path $final_path
+#SETUP_SOURCE_ZIP	# Télécharge la source, décompresse et copie dans $final_path
+#sudo cp -a $final_path/files_to_upload/. $final_path
+#sudo rm -r $final_path/files_to_upload
 
 #=================================================
 # NGINX CONFIGURATION
